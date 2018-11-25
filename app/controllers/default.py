@@ -1,9 +1,10 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user
-from app import app, db, lm 
+from app import app, db, lm
 
 from app.models.tables import User
 from app.models.forms import LoginForm
+from app.models.forms import CadastroForm
 
 @lm.user_loader
 def load_user(id):
@@ -35,4 +36,23 @@ def logout():
 	logout_user()
 	flash("Logged out. ")
 	return redirect(url_for("index"))
+
+@app.route("/cadastro", methods=["GET", "POST"])
+def cadastro():
+	form = CadastroForm()				
+	if request.method == "POST":
+		username = request.form.get("username")
+		password = request.form.get("password")
+		name = request.form.get("name")
+		email = request.form.get("email")
+
+		if username and password and name and email:
+			p = User(username,password,name,email)
+			db.session.add(p)
+			db.session.commit()
+
+		return redirect(url_for("login"))
+		
+	return render_template('cadastro.html',
+							form=form)
 

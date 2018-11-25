@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="urt-8">
+        <title> Pagina </title>
+    </head>
+    <body>
+        <h1>Cadastro </h1>
+        <hr>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>UserName</td>
+                <td>Senha</td>
+                <td>Nome</td>
+                <td>Email</td>
+            </tr>
+            {% for user in user %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

@@ -7,3 +7,8 @@ class LoginForm(Form):
     password = PasswordField ("passaword", validators=[DataRequired()])
     remember_me = BooleanField ("remember_me")
 
+class CadastroForm(Form):
+    name = StringField ("name", validators=[DataRequired()])
+    username = StringField ("username", validators=[DataRequired()])
+    email = StringField ("email", validators=[DataRequired()])
+    password = PasswordField ("password", validators=[DataRequired()])
