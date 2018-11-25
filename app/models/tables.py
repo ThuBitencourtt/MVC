@@ -36,20 +36,23 @@ class User(db.Model):
         return "<User %r>" % self.username
 
 
-class Post(db.Model):
-     __tablename__ = "posts"
+class Livro(db.Model):
+     __tablename__ = "book"
 
      id = db.Column(db.Integer, primary_key=True)
-     content = db.Column(db.Text)
-     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+     livro = db.Column(db.String, unique=True)
+     autor = db.Column(db.String)
+     editora = db.Column(db.String)
+     cidade = db.Column(db.String, unique=True)
 
-     user = db.relationship('User', foreign_keys=user_id)
+     def __init__(self, livro, autor, editora, cidade):
+         self.livro = livro
+         self.autor = autor
+         self.editora = editora
+         self.cidade = cidade        
 
-     def __init__(self, content, user_id):
-        self.content = content
-        self.user_id = user_id
 
      def __repr__(self):
-        return "<Post %r>" % self.id 
+        return "<Livro %r>" % self.id 
 
 

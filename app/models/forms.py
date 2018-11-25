@@ -12,3 +12,11 @@ class CadastroForm(Form):
     username = StringField ("username", validators=[DataRequired()])
     email = StringField ("email", validators=[DataRequired()])
     password = PasswordField ("password", validators=[DataRequired()])
+
+
+class Cadastro_livroForm(Form):
+    livro = StringField ("livro", validators=[DataRequired()])
+    autor = StringField ("autor", validators=[DataRequired()])
+    editora = StringField ("editora", validators=[DataRequired()])
+    cidade = StringField ("cidade", validators=[DataRequired()])
+

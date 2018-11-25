@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class= "col-md-6 col-md-offset-1">
+<h2>Cadastro de Livros</h2>
+<form action="" method="POST">
+    {{ form.csrf_token }}
+    <div class="form-group">
+        <label>Livro</label>
+        {{ form.livro(class="form-control") }}
+    
+    </div>
+    <div class="form-group">
+        <label>Autor</label>
+        {{ form.autor(class="form-control") }}
+    
+    </div>
+    <div class="form-group">
+        <label>Editora</label>
+            {{ form.editora(class="form-control") }}
+    
+    </div>
+    <div class="form-group">
+        <label>Cidade</label>
+            {{ form.cidade(class="form-control") }}
+    
+    </div>
+    <button type="cadastrar" class="btn btn-defauld">Cadastrar</button>
+
+</form>
+</div>
+
+{% endblock %}

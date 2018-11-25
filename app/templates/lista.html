@@ -1,28 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <html>
     <head>
         <meta charset="urt-8">
-        <title> Pagina </title>
+        
     </head>
     <body>
-        <h1>Cadastro </h1>
         <hr>
-        <table>
+        <nav>
+            <ul class="nav nav-pills pull-right">
+             <a href="{{ url_for('cadastrar_livros') }}">Cadastrar Livros</a>  
+             <a href="{{ url_for('lista') }}">Excluir Livros</a>
+            </ul>
+          </nav>
+       
+        <table border="4">
             <tr>
                 <td>ID</td>
-                <td>UserName</td>
-                <td>Senha</td>
-                <td>Nome</td>
-                <td>Email</td>
+                <td>Livro</td>
+                <td>Autor</td>
+                <td>Editora</td>
+                <td>Cidade</td>
             </tr>
-            {% for user in user %}
+            {% for livro in livro %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.email }}</td>
+                <td>{{ livro.id }}</td>
+                <td>{{ livro.livro }}</td>
+                <td>{{ livro.autor }}</td>
+                <td>{{ livro.editora }}</td>
+                <td>{{ livro.cidade }}</td>
             </tr>
             {% endfor %}
         </table>
     </body>
 </html>
+    {% endblock %}
