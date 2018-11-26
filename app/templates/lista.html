@@ -22,6 +22,7 @@
                 <td>Autor</td>
                 <td>Editora</td>
                 <td>Cidade</td>
+                <td>Excluir</td>
             </tr>
             {% for livro in livro %}
             <tr>
@@ -30,6 +31,7 @@
                 <td>{{ livro.autor }}</td>
                 <td>{{ livro.editora }}</td>
                 <td>{{ livro.cidade }}</td>
+                <td><a href="/excluir/{{ livro.id }}">X</a></td>
             </tr>
             {% endfor %}
         </table>

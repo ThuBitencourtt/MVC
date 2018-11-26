@@ -64,6 +64,16 @@ def lista():
 	livro = Livro.query.all()
 	return render_template("lista.html", livro=livro)
 
+@app.route("/excluir/<int:id>")
+def excluir(id):
+	livro = Livro.query.filter_by(id=id).first()
+
+	db.session.delete(livro)
+	db.session.commit()
+
+	livro = Livro.query.all()
+	return render_template("lista.html", livro=livro)
+
 
 @app.route("/cadastro_livro", methods=["GET", "POST"])
 def cadastrar_livros():
@@ -83,3 +93,4 @@ def cadastrar_livros():
 		
 	return render_template('cadastrar_livros.html',
 							form=form)
+
