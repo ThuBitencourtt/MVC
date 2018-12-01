@@ -38,7 +38,7 @@ def login():
 def logout():
 	logout_user()
 	flash("Logged out. ")
-	return redirect(url_for("index"))
+	return redirect(url_for("login"))
 
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():

@@ -1,40 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<html>
-    <head>
-        <meta charset="urt-8">
+
+<div class="container">
+    <h1 class="page-header">Livros Cadastrados</h1>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
         
-    </head>
-    <body>
-        <hr>
-        <nav>
-            <ul class="nav nav-pills pull-right">
-             <a href="{{ url_for('cadastrar_livros') }}">Cadastrar Livros</a>  
-             <a href="{{ url_for('lista') }}">Excluir Livros</a>
-            </ul>
-          </nav>
-       
-        <table border="4">
-            <tr>
-                <td>ID</td>
-                <td>Livro</td>
-                <td>Autor</td>
-                <td>Editora</td>
-                <td>Cidade</td>
-                <td>Excluir</td>
-            </tr>
-            {% for livro in livro %}
-            <tr>
-                <td>{{ livro.id }}</td>
-                <td>{{ livro.livro }}</td>
-                <td>{{ livro.autor }}</td>
-                <td>{{ livro.editora }}</td>
-                <td>{{ livro.cidade }}</td>
-                <td><a href="/excluir/{{ livro.id }}">X</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-    </body>
-</html>
+            <th>ID</th>
+            <td>Livro</th>
+            <th>Autor</th>
+            <th>Editora</th>
+            <th>Cidade</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        {% for livro in livro %}
+        <tr>
+            <td>{{ livro.id }}</td>
+            <td>{{ livro.livro }}</td>
+            <td>{{ livro.autor }}</td>
+            <td>{{ livro.editora }}</td>
+            <td>{{ livro.cidade }}</td>
+            <td><a href="/excluir/{{ livro.id }}">X</a></td>
+        </tr>
+        
+        {% endfor %}
+      </table>
+      <button><a href="{{ url_for('cadastrar_livros') }}">Cadastrar Livros</a></button>
+      </div>
+  </div>
+  
+
     {% endblock %}
